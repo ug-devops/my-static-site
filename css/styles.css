@@ -1,81 +1,63 @@
 /* Body Style with Gradient Background */
 body {
-    background: linear-gradient(to right, #ffefdb, #f9d3a6); /* Gradient background */
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Gradient background */
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
 }
 
-/* Header Style */
-header {
-    background-color: #4caf50; /* Green banner */
-    color: white;
+/* Container Style */
+.container {
+    text-align: center;
     padding: 20px;
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Main Content Wrapper */
-.content-wrapper {
-    background-color: white;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Drop shadow for modern look */
-    padding: 30px;
-    text-align: center;
-    max-width: 800px;
-    margin: 40px auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Link Styles */
-a {
-    color: #4caf50;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    color: #388e3c;
-    text-decoration: underline;
-}
-
-/* Footer Styling */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 0.9rem;
-    width: 100%;
-}
-
-/* Typography */
+/* Header Styling */
 h1 {
-    font-size: 2rem;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 1.5em;
     margin-bottom: 20px;
 }
 
-p {
-    font-size: 1.2rem;
-    color: #333;
+/* Button Styling */
+button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
 }
 
 /* Responsive Design for Smaller Screens */
 @media (max-width: 768px) {
-    header {
-        font-size: 2rem;
-    }
-    .content-wrapper {
-        padding: 20px;
+    h1 {
+        font-size: 2em;
     }
     p {
-        font-size: 1rem;
+        font-size: 1.2em;
+    }
+    button {
+        font-size: 1em;
+        padding: 8px 16px;
     }
 }
 
