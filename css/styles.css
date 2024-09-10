@@ -7,9 +7,11 @@
 
 /* Basic styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
+    background: linear-gradient(135deg, #f06, #ff9); /* Gradient background */
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
 }
 
 /* Container for layout centering */
@@ -21,14 +23,16 @@ body {
 
 /* Header styling */
 header {
-    background: #333;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     color: #fff;
     padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 header h1 {
     margin: 0;
     font-size: 2rem;
+    text-align: center;
 }
 
 nav ul {
@@ -46,10 +50,11 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    color: #ff9;
 }
 
 /* Main content styling */
@@ -59,11 +64,16 @@ main {
 
 .hero {
     text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    padding: 2rem;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
 }
 
 .hero h2 {
     font-size: 2.5rem;
+    color: #333;
 }
 
 .hero p {
@@ -73,11 +83,16 @@ main {
 
 .content {
     text-align: center;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    padding: 2rem;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .content h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: #333;
 }
 
 .content p {
@@ -87,10 +102,11 @@ main {
 
 /* Footer styling */
 footer {
-    background: #333;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     color: #fff;
     padding: 1rem 0;
     text-align: center;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 footer p {
