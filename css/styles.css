@@ -10,7 +10,7 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #f06, #ff9); /* Gradient background */
+    background: linear-gradient(135deg, #f06, #ff9); /* Colorful gradient background */
     background-attachment: fixed; /* Keeps the background fixed when scrolling */
 }
 
@@ -54,7 +54,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ff9;
+    color: #ff9; /* Highlight color */
 }
 
 /* Main content styling */
