@@ -8,7 +8,7 @@
     /* Inline CSS */
     body {
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Gradient background */
+      background: linear-gradient(135deg, #89CFF0, #A7D7E8); /* Sky-blue gradient background */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -16,41 +16,53 @@
       margin: 0;
       color: white;
     }
+    
     .container {
       text-align: center;
-      padding: 20px;
-      border-radius: 10px;
-      background-color: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      border-radius: 15px;
+      background-color: rgba(255, 255, 255, 0.15); /* Light transparency effect */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Softer shadow for depth */
+      backdrop-filter: blur(10px); /* Blur background behind the box */
+      border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle border for a card-like effect */
+      max-width: 400px;
+      width: 100%;
     }
+
     h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
+      font-size: 2.5em;
+      margin-bottom: 15px;
     }
+
     p {
-      font-size: 1.5em;
-      margin-bottom: 20px;
+      font-size: 1.2em;
+      margin-bottom: 25px;
+      color: #F0F8FF; /* Lighter text */
     }
+
     button {
       font-size: 1.2em;
-      padding: 10px 20px;
+      padding: 12px 25px;
       border: none;
-      border-radius: 5px;
-      background-color: #4CAF50;
+      border-radius: 10px;
+      background-color: #00BFFF; /* Bright sky-blue button */
       color: white;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3); /* Button shadow */
     }
+
     button:hover {
-      background-color: #45a049;
+      background-color: #1E90FF;
+      transform: scale(1.05); /* Scale button on hover */
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Welcome to My Cool App!</h1>
-    <p>This is a colorful and trendy Node.js app.</p>
-    <button id="magicButton">Click me!</button>
+    <h1>This Site is Deployed by Usman</h1>
+    <p>This is a static site hosted on AWS S3 Bucket.</p>
+    <button id="magicButton">Magic!</button>
   </div>
   <script src="script.js"></script>
 </body>
