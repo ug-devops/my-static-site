@@ -8,69 +8,69 @@
     /* Inline CSS */
     body {
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #B0B0B0, #E0E0E0); /* Grey-ish gradient background */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
-      color: white;
-    }
-
-    .container {
+      padding: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 30px;
-      border-radius: 20px;
-      background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* More pronounced shadow for depth */
-      backdrop-filter: blur(15px); /* Stronger blur effect */
-      border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border */
-      max-width: 400px;
-      width: 100%;
-      height: 300px; /* Fixed height to accommodate layout */
+      min-height: 100vh;
+      background: linear-gradient(135deg, #B0B0B0, #E0E0E0); /* Grey-ish gradient background */
+      color: white;
     }
 
     .heading {
-      font-size: 2.5em;
-      margin-bottom: 15px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background for heading */
       color: #FFFFFF; /* White text */
+      text-align: center;
+      padding: 20px;
+      font-size: 2em;
+      font-weight: bold;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1; /* Ensure heading is on top */
     }
 
-    .subheading {
-      font-size: 1.2em;
-      margin-top: 15px;
-      color: #DCDCDC; /* Light grey text */
+    .container {
+      text-align: center;
+      position: relative;
+      z-index: 2; /* Ensure container is on top of the heading */
     }
 
-    button {
-      font-size: 1.2em;
-      padding: 12px 25px;
+    .magic-button {
+      font-size: 1.5em;
+      padding: 15px 30px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       background-color: #4CAF50; /* Green button */
       color: white;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
       box-shadow: 0 5px 15px rgba(0, 128, 0, 0.3); /* Button shadow */
-      margin: 20px 0; /* Space above and below the button */
     }
 
-    button:hover {
+    .magic-button:hover {
       background-color: #45A049;
       transform: scale(1.05); /* Scale button on hover */
+    }
+
+    .subheading {
+      position: absolute;
+      bottom: 20px;
+      font-size: 1.2em;
+      color: #DCDCDC; /* Light grey text */
+      text-align: center;
     }
   </style>
 </head>
 <body>
+  <div class="heading">This Site is Deployed by Usman</div>
   <div class="container">
-    <div class="heading">This Site is Deployed by Usman</div>
-    <button id="magicButton">Magic!</button>
-    <div class="subheading">This is a static site hosted on AWS S3 Bucket.</div>
+    <button class="magic-button" id="magicButton">Magic!</button>
   </div>
+  <div class="subheading">This is a static site hosted on AWS S3 Bucket.</div>
   <script src="script.js"></script>
 </body>
 </html>
