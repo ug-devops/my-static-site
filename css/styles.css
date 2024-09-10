@@ -11,6 +11,10 @@ body {
     background: linear-gradient(to right, #34e89e, #0f3443); /* Colorful Gradient Background */
     color: white;
     line-height: 1.6;
+    height: 100vh; /* Full viewport height to cover entire page */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure footer stays at bottom */
 }
 
 /* Container */
@@ -40,11 +44,15 @@ header p {
 
 /* Main Section Styling */
 main {
+    flex-grow: 1; /* Take up available space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 60px 0;
 }
 
 main .content {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white box */
     padding: 40px;
     border-radius: 10px;
 }
