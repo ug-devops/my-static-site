@@ -23,7 +23,11 @@ jobs:
       run: |
         if aws s3 ls "s3://$S3_BUCKET" 2>&1 | grep -q 'NoSuchBucket'; then
           echo "Bucket does not exist. Creating bucket: $S3_BUCKET"
-          aws s3api create-bucket --bucket $S3_BUCKET --region $AWS_REGION --create-bucket-configuration LocationConstraint=$AWS_REGION
+          if [ "$AWS_REGION" = "us-east-1" ]; then
+            aws s3api create-bucket --bucket $S3_BUCKET
+          else
+            aws s3api create-bucket --bucket $S3_BUCKET --region $AWS_REGION --create-bucket-configuration LocationConstraint=$AWS_REGION
+          fi
           echo "Making bucket public"
           aws s3api put-bucket-policy --bucket $S3_BUCKET --policy '{
             "Version": "2012-10-17",
