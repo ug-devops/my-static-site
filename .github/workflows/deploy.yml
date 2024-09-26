@@ -19,6 +19,34 @@ jobs:
         unzip awscliv2.zip
         sudo ./aws/install --update
 
+    - name: Check if S3 bucket exists
+      id: check_bucket
+      run: |
+        if aws s3 ls "s3://$S3_BUCKET" 2>&1 | grep -q 'NoSuchBucket'; then
+          echo "Bucket doesn't exist. Creating bucket..."
+          aws s3api create-bucket --bucket $S3_BUCKET --region $AWS_REGION --create-bucket-configuration LocationConstraint=$AWS_REGION
+          aws s3 website s3://$S3_BUCKET --index-document index.html
+          
+          # Set public access policy
+          cat > bucket-policy.json <<EOF
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Sid": "PublicReadGetObject",
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::$S3_BUCKET/*"
+              }
+            ]
+          }
+          EOF
+          aws s3api put-bucket-policy --bucket $S3_BUCKET --policy file://bucket-policy.json
+        else
+          echo "Bucket already exists. Proceeding with deployment."
+        fi
+
     - name: Deploy to S3
       run: |
         aws s3 sync ./ s3://$S3_BUCKET --region $AWS_REGION --delete
