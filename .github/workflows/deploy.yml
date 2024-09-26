@@ -28,9 +28,10 @@ jobs:
           else
             aws s3api create-bucket --bucket $S3_BUCKET --region $AWS_REGION --create-bucket-configuration LocationConstraint=$AWS_REGION
           fi
+
           echo "Disabling public access block"
           aws s3api put-bucket-public-access-block --bucket $S3_BUCKET --public-access-block-configuration BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false
-          
+
           echo "Making bucket public"
           aws s3api put-bucket-policy --bucket $S3_BUCKET --policy '{
             "Version": "2012-10-17",
@@ -43,9 +44,18 @@ jobs:
             }]
           }'
           
-          echo "Setting website configuration"
-          aws s3 website s3://$S3_BUCKET --index-document index.html
+          echo "Enabling static website hosting"
+          aws s3api put-bucket-website --bucket $S3_BUCKET --website-configuration '{
+            "IndexDocument": {
+              "Suffix": "index.html"
+            },
+            "ErrorDocument": {
+              "Key": "index.html"
+            }
+          }'
         fi
+        
+        echo "Syncing local files to S3 bucket"
         aws s3 sync ./ s3://$S3_BUCKET --region $AWS_REGION --delete
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
